@@ -1,0 +1,20 @@
+{
+  "name": "e-commerce-website",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r <a href=\"https://www.meraki-academy.org\" target=\"_blank\" rel=\"noopener noreferrer\">\r  <img width=\"400px\" height=\"100px\" src=\"https://www.meraki-academy.org/assets/img/logov02.svg\" alt=\"Project logo\">\r  </a>\r </p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C16-AhmedAlsous/E-Commerce-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C16-AhmedAlsous/E-Commerce-Website/issues"
+  },
+  "homepage": "https://github.com/C16-AhmedAlsous/E-Commerce-Website#readme"
+}
