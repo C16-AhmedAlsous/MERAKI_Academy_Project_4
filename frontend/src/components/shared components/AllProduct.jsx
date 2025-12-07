@@ -42,13 +42,13 @@ const AllProduct = () => {
     <div className="showproduct">
       {products.map((product, index) => {
         return (
-          <div className={index} id="productcard">
+          <div key={index} id="productcard">
             <p>{product.name}</p>
             <img
               src={product.imageurl}
               className="productimg"
               onClick={(e) => {
-                console.log(e.target);
+                
               }}
             />
             <button

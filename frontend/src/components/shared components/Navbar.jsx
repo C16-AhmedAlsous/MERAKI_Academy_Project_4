@@ -1,31 +1,44 @@
 import React, { useContext } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { UserContext } from "../../App";
+import { Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const Navbar = () => {
   const { isLoggedIn, setisLoggedIn } = useContext(UserContext);
 
-  return (
-    <div style={{ display: "flex", gap: "16px" }}>
-      <p>E-commerce</p> || <Link to="/">Home</Link> ||{" "}
+  return (<div>
+     <nav className="navbar">
+      <p className="logo">E-commerce</p> || <Link to="/">Home</Link> ||{" "}
       <Link to="/about">About</Link> || <Link to="/contact">Contact</Link> ||{" "}
-      <Link to="/search">search</Link> || <br />
+      <Link className="search-bar" to="/search">
+        search
+      </Link>{" "}
+      || <br />
       {isLoggedIn ? (
-        <button
-          onClick={() => {
-            setisLoggedIn(false);
-            localStorage.removeItem("token");
-          }}
-        >
-          LogOut
-        </button>
+        <div>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setisLoggedIn(false);
+              localStorage.removeItem("token");
+            }}
+          >
+            LogOut
+          </Button> || 
+            <Link className="cart" to="/Carts">
+            Carts
+          </Link>
+        </div>
       ) : (
         <div>
           <Link to="/register">register</Link> || <Link to="/login">login</Link>
         </div>
       )}
       <Link to="/newproduct">AddProduct</Link>
-      <Link to="/Carts">Carts</Link>
-    </div>
+    </nav>
+  </div>
+   
   );
 };
 

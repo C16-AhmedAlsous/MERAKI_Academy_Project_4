@@ -10,7 +10,6 @@ import About from "./components/shared components/About";
 import Contact from "./components/shared components/Contact";
 import AddProduct from "./components/shared components/addProduct";
 import Carts from "./components/shared components/carts";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export const UserContext = createContext();
 const App = () => {

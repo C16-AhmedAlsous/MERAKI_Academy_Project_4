@@ -12,7 +12,9 @@ const Carts = () => {
       })
       .then((result) => {
         setCart(result.data);
-      });
+      }).catch((err)=>{
+        res.json("please login")
+      })
   }, []);
 
   const removeFromCart = (id) => {
