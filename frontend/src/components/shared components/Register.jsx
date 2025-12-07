@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from ("axios")
+import axios from "axios"
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -7,6 +7,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [role, setRole] = useState("");
+  const [message, setmessage] = useState("");
   return (
     <div>
       <input
@@ -66,6 +67,7 @@ const Register = () => {
       >
         Register
       </button>
+      <p>{message}</p>
     </div>
   );
 };

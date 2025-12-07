@@ -2,6 +2,7 @@ const ProductModel = require("../models/productSchema");
 
 const createNewProduct = (req, res) => {
   const { name, description, price, imageurl, catagory, rating } = req.body;
+
   const product = new ProductModel({
     name,
     description,
@@ -64,8 +65,7 @@ const getProductById = (req, res) => {
 };
 const updateProductById = (req, res) => {
   const id = req.params.id;
-  ProductModel
-    .findByIdAndUpdate({ _id: id }, req.body)
+  ProductModel.findByIdAndUpdate({ _id: id }, req.body)
     .then((Product) => {
       if (!Product) {
         return res.status(404).json({
@@ -89,8 +89,7 @@ const updateProductById = (req, res) => {
 };
 const deleteProductById = (req, res) => {
   const id = req.params.id;
-  ProductModel
-    .findByIdAndDelete(id)
+  ProductModel.findByIdAndDelete(id)
     .then((result) => {
       if (!result) {
         return res.status(404).json({
@@ -116,5 +115,5 @@ module.exports = {
   getAllProduct,
   getProductById,
   updateProductById,
-  deleteProductById
+  deleteProductById,
 };

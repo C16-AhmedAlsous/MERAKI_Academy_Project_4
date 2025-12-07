@@ -1,11 +1,12 @@
 const express = require("express");
 const orderRouter = express.Router()
 
-const {order,getOrderByUser} = require("../controllers/order")
+const {order,getOrderByUser} = require("../controllers/order");
+const authentication = require("../middleware/authentication");
 
 
-orderRouter.post("/order",order)
-orderRouter.get("/getOrderByUser/:id",getOrderByUser)
+orderRouter.post("/order",authentication,order)
+orderRouter.get("/getOrderByUser/:id",authentication,getOrderByUser)
 
 
 
