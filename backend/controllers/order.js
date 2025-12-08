@@ -1,3 +1,4 @@
+const {clearCart} = require("../controllers/cart");
 const orderModel = require("../models/ordersSchema");
 
 const order = (req, res) => {
@@ -10,7 +11,9 @@ const order = (req, res) => {
   });
   order
     .save()
-    .then((result) => {
+    .then(async (result) => {
+      await clearCart(req, res);
+
       res.status(201).json({
         success: true,
         message: `order added Successfully`,
