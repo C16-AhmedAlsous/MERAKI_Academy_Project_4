@@ -163,6 +163,7 @@ const Carts = () => {
               onChange={(e) => setAddress(e.target.value)}
             />
           </label>
+          <p className="paymentparagraph">Only Cash payment available</p>
           <button className="primary-btn" onClick={handleCheckout}>
             Complete order
           </button>

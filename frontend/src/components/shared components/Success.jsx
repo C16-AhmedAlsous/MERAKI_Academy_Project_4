@@ -58,9 +58,7 @@ const Success = () => {
           <button className="primary-btn" onClick={() => navigate("/")}>
             Continue Shopping
           </button>
-          <button className="secondary-btn" onClick={() => navigate("/carts")}>
-            View Orders
-          </button>
+        
         </div>
       </div>
     </div>

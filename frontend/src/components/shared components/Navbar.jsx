@@ -3,15 +3,22 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
 
 const Navbar = () => {
-  const { isLoggedIn, setIsLoggedIn, setUserRole, setIsAdmin, isAdmin } =
-    useContext(UserContext);
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    setUserRole,
+    setIsAdmin,
+    isAdmin,
+    theme,
+    toggleTheme,
+  } = useContext(UserContext);
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   return (
     <header className="navbar">
       <div className="nav-left">
         <Link className="logo" to="/">
-          MERAKI Shop
+          ELECTRIC Shop
         </Link>
         <div className="nav-links">
           <Link to="/">Home</Link>
@@ -22,6 +29,9 @@ const Navbar = () => {
       </div>
 
       <div className="nav-right">
+        <button className="pill" onClick={toggleTheme}>
+          {theme === "dark" ? "Light mode" : "Dark mode"}
+        </button>
         {isLoggedIn ? (
           <>
             <div className="user-menu" >

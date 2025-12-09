@@ -22,6 +22,14 @@ const App = () => {
   );
   const [userRole, setUserRole] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark" || stored === "light") return stored;
+    const prefersDark =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return prefersDark ? "dark" : "light";
+  });
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -35,6 +43,16 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle("dark", theme === "dark");
+    document.body.classList.toggle("light", theme === "light");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -46,6 +64,8 @@ const App = () => {
         setUserRole,
         isAdmin,
         setIsAdmin,
+        theme,
+        toggleTheme,
       }}
     >
       <div className="App">

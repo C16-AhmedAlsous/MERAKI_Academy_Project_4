@@ -5,7 +5,7 @@ const About = () => {
     <div className="page">
       <div className="section-card">
         <p className="eyebrow">Our story</p>
-        <h2>Built for MERAKI shoppers</h2>
+        <h2>Built for ELECTRIC shoppers</h2>
         <p className="muted">
           We focus on a clean, fast shopping experience with clear product
           details, simple navigation, and an easy cart flow.

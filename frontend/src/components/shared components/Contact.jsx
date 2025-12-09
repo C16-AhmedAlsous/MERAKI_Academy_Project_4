@@ -12,7 +12,7 @@ const Contact = () => {
         <div className="contact-grid">
           <div className="contact-item">
             <h3>Email</h3>
-            <p>khaledalsous.ahmed@gmail.com</p>
+            <p>ELECTRIC-shop@gmail.com</p>
           </div>
           <div className="contact-item">
             <h3>Phone</h3>

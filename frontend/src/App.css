@@ -1,7 +1,32 @@
 :root {
   font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  color: #0f172a;
-  background-color: #f8fafc;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  --bg-color: #f8fafc;
+  --bg-alt: #eef2ff;
+  --text-color: #0f172a;
+  --muted-color: #64748b;
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --shadow: rgba(15, 23, 42, 0.08);
+  --shadow-strong: rgba(15, 23, 42, 0.12);
+  --accent: #6366f1;
+  --accent-strong: #4f46e5;
+}
+
+body.dark {
+  --bg-color: #0b1220;
+  --bg-alt: #0f172a;
+  --text-color: #e5e7eb;
+  --muted-color: #cbd5e1;
+  --surface: #0f172a;
+  --surface-alt: #111827;
+  --border: #1f2937;
+  --border-strong: #334155;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --shadow-strong: rgba(0, 0, 0, 0.55);
 }
 
 * {
@@ -10,7 +35,8 @@
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  background: linear-gradient(180deg, var(--bg-color) 0%, var(--bg-alt) 100%);
+  color: var(--text-color);
 }
 
 a {
@@ -35,9 +61,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  background: var(--surface);
+  box-shadow: 0 10px 30px var(--shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,9 +95,9 @@ a {
 }
 
 .nav-links a:hover {
-  background: #e2e8f0;
-  color: #111827;
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  background: var(--border-strong);
+  color: var(--text-color);
+  box-shadow: 0 8px 18px var(--shadow);
 }
 
 .nav-right {
@@ -110,27 +135,28 @@ a {
   background: #dc2626;
 }
 .primary-btn {
-  background: #6366f1;
+  background: var(--accent);
   color: #fff;
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
 
 .primary-btn:hover {
-  background: #4f46e5;
+  background: var(--accent-strong);
 }
 
 .secondary-btn {
-  background: #e2e8f0;
-  color: #0f172a;
+  background: var(--border);
+  color: var(--text-color);
 }
 
 .secondary-btn:hover {
-  background: #cbd5e1;
+  background: var(--border-strong);
 }
 
 .pill {
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-color);
 }
 
 .user-menu {
@@ -148,10 +174,10 @@ a {
   right: 0;
   top: calc(100% + 8px);
   min-width: 160px;
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 12px 28px var(--shadow-strong);
   padding: 8px;
   display: grid;
   gap: 6px;
@@ -173,7 +199,7 @@ a {
 
 .dropdown a:hover,
 .dropdown button:hover {
-  background: #f1f5f9;
+  background: var(--border-strong);
 }
 
 .ghost-btn {
@@ -185,7 +211,7 @@ a {
   color: #fff;
   padding: 32px;
   border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 20px 40px var(--shadow-strong);
   display: grid;
   gap: 12px;
 }
@@ -199,7 +225,7 @@ a {
 }
 
 .muted {
-  color: #64748b;
+  color: var(--muted-color);
   line-height: 1.6;
 }
 
@@ -213,10 +239,11 @@ a {
 }
 
 .section-card {
-  background: #fff;
+  background: var(--surface);
   border-radius: 16px;
   padding: 22px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px var(--shadow);
+  color: var(--text-color);
 }
 
 .products {
@@ -232,17 +259,18 @@ a {
 }
 
 .product-card {
-  background: #fff;
+  background: var(--surface);
   border-radius: 16px;
   padding: 14px;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 28px var(--shadow);
   display: flex;
   flex-direction: column;
   gap: 12px;
+  color: var(--text-color);
 }
 
 .product-image {
-  background: #f8fafc;
+  background: var(--surface-alt);
   border-radius: 12px;
   overflow: hidden;
   height: 180px;
@@ -284,17 +312,18 @@ a {
 
 .price {
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-color);
 }
 
 .form-card {
-  background: #fff;
+  background: var(--surface);
   padding: 24px;
   border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 30px var(--shadow);
   display: flex;
   flex-direction: column;
   gap: 12px;
+  color: var(--text-color);
 }
 
 .form-grid {
@@ -313,10 +342,11 @@ input,
 textarea {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border);
   border-radius: 10px;
-  background: #f8fafc;
+  background: var(--surface-alt);
   font-size: 15px;
+  color: var(--text-color);
 }
 
 textarea {
@@ -326,8 +356,8 @@ textarea {
 
 input:focus,
 textarea:focus {
-  outline: 2px solid #6366f1;
-  background: #fff;
+  outline: 2px solid var(--accent);
+  background: var(--surface);
 }
 
 .contact-card {
@@ -342,7 +372,7 @@ textarea:focus {
 }
 
 .contact-item {
-  background: #f8fafc;
+  background: var(--surface-alt);
   padding: 12px;
   border-radius: 12px;
 }
@@ -353,14 +383,15 @@ textarea:focus {
 }
 
 .cart-card {
-  background: #fff;
+  background: var(--surface);
   display: grid;
   grid-template-columns: 96px 1fr auto;
   gap: 12px;
   align-items: center;
   padding: 12px;
   border-radius: 14px;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 26px var(--shadow);
+  color: var(--text-color);
 }
 
 .cart-thumb img {
@@ -376,13 +407,14 @@ textarea:focus {
 }
 
 .details-card {
-  background: #fff;
+  background: var(--surface);
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 20px;
   padding: 24px;
   border-radius: 18px;
-  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 14px 36px var(--shadow-strong);
+  color: var(--text-color);
 }
 
 .details-image img {
@@ -433,9 +465,10 @@ textarea:focus {
   margin: 60px auto;
   text-align: center;
   padding: 48px 32px;
-  background: white;
+  background: var(--surface);
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px var(--shadow);
+  color: var(--text-color);
 }
 
 .success-icon {
@@ -471,7 +504,7 @@ textarea:focus {
 }
 
 .success-details {
-  background: #f8fafc;
+  background: var(--surface-alt);
   border-radius: 12px;
   padding: 24px;
   margin: 32px 0;
@@ -517,7 +550,10 @@ textarea:focus {
   object-fit: contain;
   object-position: center;
 }
-
+.paymentparagraph{
+  font-size: xx-large;
+  font-weight: bold;
+}
 @media (max-width: 768px) {
   .success-container {
     margin: 40px auto;

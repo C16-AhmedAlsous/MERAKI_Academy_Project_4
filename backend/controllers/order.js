@@ -1,28 +1,32 @@
-const {clearCart} = require("../controllers/cart");
+const { clearCart } = require("../controllers/cart");
+const cartModel = require("../models/cartSchema");
 const orderModel = require("../models/ordersSchema");
 
-const order = (req, res) => {
-  const { userId, items, address, totalamount } = req.body;
-  const order = new orderModel({
-    userId,
-    items,
-    address,
-    totalamount,
-  });
-  order
-    .save()
-    .then(async (result) => {
-      await clearCart(req, res);
+// Create order and clear user's cart (send only one response)
+const order = async (req, res) => {
+  try {
+    const { userId, items, address, totalamount } = req.body;
 
-      res.status(201).json({
-        success: true,
-        message: `order added Successfully`,
-        order: result,
-      });
-    })
-    .catch((err) => {
-      res.status(500).json(err.message);
+    const orderDoc = new orderModel({
+      userId,
+      items,
+      address,
+      totalamount,
     });
+
+    const result = await orderDoc.save();
+
+    // Clear the cart without sending an extra response
+    await cartModel.deleteMany({ userid: userId });
+
+    res.status(201).json({
+      success: true,
+      message: `order added Successfully`,
+      order: result,
+    });
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
 };
 const getOrderByUser = (req, res) => {
   const user = req.user._id;
