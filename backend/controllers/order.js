@@ -2,7 +2,7 @@ const { clearCart } = require("../controllers/cart");
 const cartModel = require("../models/cartSchema");
 const orderModel = require("../models/ordersSchema");
 
-// Create order and clear user's cart (send only one response)
+
 const order = async (req, res) => {
   try {
     const { userId, items, address, totalamount } = req.body;
@@ -16,7 +16,7 @@ const order = async (req, res) => {
 
     const result = await orderDoc.save();
 
-    // Clear the cart without sending an extra response
+   
     await cartModel.deleteMany({ userid: userId });
 
     res.status(201).json({

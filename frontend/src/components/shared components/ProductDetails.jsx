@@ -14,7 +14,6 @@ const ProductDetails = () => {
     axios
       .get(`http://localhost:5000/product/getProductById/${productid}`)
       .then((res) => {
-        // API returns the product under `article`; store just the product object
         setProduct(res.data?.article || null);
         setMessage("");
       })
@@ -131,9 +130,6 @@ const ProductDetails = () => {
                 {isRemoving ? "Removing..." : "Remove from cart"}
               </button>
             )}
-            <Link className="secondary-btn" to="/">
-              Home
-            </Link>
           </div>
           {message && <p className="muted small">{message}</p>}
         </div>
